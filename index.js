@@ -13,7 +13,14 @@ const fetchList = async () => {
   let response = await fetch('https://swapi.dev/api/people/');
   if (response.ok) {
     let json = await response.json();
-    console.log(json.results);
+    json.results.forEach(item => {
+      let personagem = {
+        name,
+        eye_color
+      } = item;
+
+      console.log(personagem)
+    })
   } else {
     alert("HTTP-Error: " + response.status);
   }
